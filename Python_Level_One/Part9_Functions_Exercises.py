@@ -2,11 +2,6 @@
 #### PART 9: FUNCTION EXERCISES #####
 #####################################
 
-
-# Complete the tasks below by writing functions! Keep in mind, these can be
-# really tough, its all about breaking the problem down into smaller, logical
-# steps. If you get stuck, don't feel bad about having to peek to the solutions!
-
 #####################
 ## -- PROBLEM 1 -- ##
 #####################
@@ -14,16 +9,16 @@
 # Given a list of integers, return True if the sequence of numbers 1, 2, 3
 # appears in the list somewhere.
 
-# For example:
 
-# arrayCheck([1, 1, 2, 3, 1]) → True
-# arrayCheck([1, 1, 2, 4, 1]) → False
-# arrayCheck([1, 1, 2, 1, 2, 3]) → True
-
+print("---------PROBLEM 1 ---------")
 def arrayCheck(nums):
     # CODE GOES HERE
-
-
+  for i in range(len(nums)-2):
+    if nums[i==1] and nums[i+1]==2 and nums[i+2]==3:
+      return True
+  return False
+print(arrayCheck([1,2,3,4,5,6]))
+print(arrayCheck([1,3,4,5,6]))
 #####################
 ## -- PROBLEM 2 -- ##
 #####################
@@ -31,16 +26,15 @@ def arrayCheck(nums):
 # Given a string, return a new string made of every other character starting
 # with the first, so "Hello" yields "Hlo".
 
-# For example:
-
-# stringBits('Hello') → 'Hlo'
-# stringBits('Hi') → 'H'
-# stringBits('Heeololeo') → 'Hello'
-
+print("---------PROBLEM 2 ---------")
 def stringBits(str):
-  # CODE GOES HERE
-
-
+  result=""
+  for i in range(len(str)):
+    if i%2==0:
+      result += str[i] 
+  return result
+print(stringBits("holi"))
+print(stringBits("HHOOLLII"))
 #####################
 ## -- PROBLEM 3 -- ##
 #####################
@@ -53,14 +47,19 @@ def stringBits(str):
 #
 # Examples:
 #
-# end_other('Hiabc', 'abc') → True
-# end_other('AbC', 'HiaBc') → True
-# end_other('abc', 'abXabc') → True
-
-
+"""
+ end_other('Hiabc', 'abc')  True
+ end_other('AbC', 'HiaBc')  True
+ end_other('abc', 'abXabc')  True
+"""
+print("---------PROBLEM 3 ---------")
 def end_other(a, b):
   # CODE GOES HERE
+    return (b.lower().endswith(a.lower()) or a.lower().endswith(b.lower()))
 
+print( end_other('Hiabc', 'abc'))
+print(end_other('AbC', 'HiaBc')) #todo=> ERROR
+print(end_other('abc', 'abXabc'))
 #####################
 ## -- PROBLEM 4 -- ##
 #####################
@@ -68,11 +67,24 @@ def end_other(a, b):
 # Given a string, return a string where for every char in the original,
 # there are two chars.
 
-# doubleChar('The') → 'TThhee'
-# doubleChar('AAbb') → 'AAAAbbbb'
-# doubleChar('Hi-There') → 'HHii--TThheerree'
-
+"""
+  # doubleChar('The')  'TThhee'
+  # doubleChar('AAbb')  'AAAAbbbb'  
+  # doubleChar('Hi-There')  'HHii--TThheerree'
+  """ 
+print("---------PROBLEM 4 ---------")
 def doubleChar(str):
+  result="";
+  for char in str:
+    result+=char
+    result+=char
+  return result
+
+print(doubleChar('The'))
+print(doubleChar('AAbb'))
+print(doubleChar('Hi-There') )
+
+
   # CODE GOES HERE
 
 
@@ -93,15 +105,24 @@ def doubleChar(str):
 #
 # Examples:
 #
-# no_teen_sum(1, 2, 3) → 6
-# no_teen_sum(2, 13, 1) → 3
-# no_teen_sum(2, 1, 14) → 3
 
+"""
+# no_teen_sum(1, 2, 3)  6
+# no_teen_sum(2, 13, 1)  3
+# no_teen_sum(2, 1, 14)  3
+"""
+print("---------PROBLEM 5 ---------")
 def no_teen_sum(a, b, c):
   # CODE GOES HERE
+  return fix_teen(a) + fix_teen(b) + fix_teen(c)
 def fix_teen(n):
+  if n in [13,14,15,16,17,18,19]:
+    return 0
+  return n
   # CODE GOES HERE
-
+print(no_teen_sum(1, 2, 3))
+print(no_teen_sum(2, 13, 1))
+print(no_teen_sum(2, 1, 14))
 #####################
 ## -- PROBLEM 6 -- ##
 #####################
@@ -110,9 +131,18 @@ def fix_teen(n):
 #
 # Examples:
 #
-# count_evens([2, 1, 2, 3, 4]) → 3
-# count_evens([2, 2, 0]) → 3
-# count_evens([1, 3, 5]) → 0
-
+"""
+# count_evens([2, 1, 2, 3, 4])  3
+# count_evens([2, 2, 0])  3
+# count_evens([1, 3, 5])  0
+"""
+print("---------PROBLEM 6 ---------")
 def count_evens(nums):
-  # CODE GOES HERE
+  count=0
+  for i in nums:
+    if i%2 == 0:
+      count+=1
+  return count
+print(count_evens([2, 1, 2, 3, 4]))
+print(count_evens([2, 2, 0]))
+print(count_evens([1, 3, 5]))

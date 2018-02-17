@@ -58,7 +58,7 @@ def end_other(a, b):
     return (b.lower().endswith(a.lower()) or a.lower().endswith(b.lower()))
 
 print( end_other('Hiabc', 'abc'))
-print(end_other('AbC', 'HiaBc')) #todo=> ERROR
+print(end_other('AbC', 'HiaBc')) 
 print(end_other('abc', 'abXabc'))
 #####################
 ## -- PROBLEM 4 -- ##
